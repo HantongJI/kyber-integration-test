@@ -3,11 +3,11 @@ The propose of these two contracts is to exchange from any kind of token to a sp
 The KyberNetwork provides the means to exchange the tokens from one to another, and their contracts have already been deployed on the ropsten. You need to deploy our contract on the ropsten as well, however, you need to have a node in the ropsten so that you can watch the events of the contracts.  What we did was to build a node on the server of the amazon web service (aws), and to include our computer as an account in the authorized list of the server. This requires the use of the secure shell (ssh).
 
 In the root folder open a terminal and type in the following command to download the node modules:
-
+```
 npm install
-
+```
 Then you need to configure the truffle.js and add the network ropsten like this:
-
+```
 ropsten: {
       host: 'SERVER_IP_ADDRESS',
       port: 8545,
@@ -16,11 +16,11 @@ ropsten: {
       gasPrice: 22000000000,
       from: 'YOUR_WALLET_PUBLIC_KEY',
 },
-
+```
 Then, you need to open a terminal, type in the following command so that you can execute your commands remotely on the server:
-
+```
 ssh ubuntu@"ip_address"
-
+```
 Then, type in the following command to acquire the id of the container that holds the image of the running node, the container is using the port configured in the truffle.js, then the next command allows you to get into the container:
 ```
 docker ps
@@ -28,11 +28,11 @@ docker ps
 docker exec -it <container-id> sh
 ```
 Then, type in the following command to go to the certain direction. Your account (included in the authorized list of the server) is normally locked, so by the time you are ready to deploy the contract, unlock the account by typing in the next command. Every time you unlock the account it will only last for a limited period of time, so you might need to unlock the account from time to time if the deploying takes a long time.
-
+```
 cd /root/.ethereum/testnet/keystore/
 
 geth --testnet --exec "personal.unlockAccount('YOUR_WALLET_PUBLIC_KEY')" attach http://localhost:8545
-
+```
 These are the preparations of the deployment. Then you are going to see the description of the contract.
 
 SwapEth.sol
@@ -79,11 +79,10 @@ logs:
 You can go to https://ropsten.etherscan.io/ and type in the transactionHash to find the transaction of the test you have just made.
 
 In order to deploy the contract, type in the following command:
-
+```
 truffle migrate --network ropsten
-
+```
 Since the kyber is deployed on the ropsten, this contract can only be deployed on the ropsten as well.
-
 
 Swap.pdf
 
