@@ -22,11 +22,11 @@ Then, you need to open a terminal, type in the following command so that you can
 ssh ubuntu@"ip_address"
 
 Then, type in the following command to acquire the id of the container that holds the image of the running node, the container is using the port configured in the truffle.js, then the next command allows you to get into the container:
-
+```
 docker ps
 
 docker exec -it <container-id> sh
-
+```
 Then, type in the following command to go to the certain direction. Your account (included in the authorized list of the server) is normally locked, so by the time you are ready to deploy the contract, unlock the account by typing in the next command. Every time you unlock the account it will only last for a limited period of time, so you might need to unlock the account from time to time if the deploying takes a long time.
 
 cd /root/.ethereum/testnet/keystore/
