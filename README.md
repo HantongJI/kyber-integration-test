@@ -64,7 +64,7 @@ In order to run the test, first, unlock your account at the node as instructed b
 truffle test --network ropsten
 
 Wait and you shall see the result of the test, you can see the logs like the following at the end:
-
+```
 logs:
  [ { address: '0x69648561a31d6e45ce8bbaeb0026fb48bae8fd09',
      blockNumber: 2788527,
@@ -75,7 +75,7 @@ logs:
      removed: false,
      event: 'Swap',
      args: [Object] } ] }
-
+```
 You can go to https://ropsten.etherscan.io/ and type in the transactionHash to find the transaction of the test you have just made.
 
 In order to deploy the contract, type in the following command:
